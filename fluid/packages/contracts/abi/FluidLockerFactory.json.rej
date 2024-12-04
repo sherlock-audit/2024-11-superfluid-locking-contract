@@ -1,0 +1,131 @@
+diff a/fluid/packages/contracts/abi/FluidLockerFactory.json b/fluid/packages/contracts/abi/FluidLockerFactory.json	(rejected hunks)
+@@ -3,18 +3,36 @@
+     "type": "constructor",
+     "inputs": [
+       {
+-        "name": "lockerImplementation",
++        "name": "lockerBeacon",
+         "type": "address",
+         "internalType": "address"
+       },
+       {
+-        "name": "penaltyManager",
++        "name": "stakingRewardController",
+         "type": "address",
+-        "internalType": "contract IPenaltyManager"
++        "internalType": "contract IStakingRewardController"
++      },
++      {
++        "name": "pauseStatus",
++        "type": "bool",
++        "internalType": "bool"
+       }
+     ],
+     "stateMutability": "nonpayable"
+   },
++  {
++    "type": "function",
++    "name": "IS_PAUSED",
++    "inputs": [],
++    "outputs": [
++      {
++        "name": "",
++        "type": "bool",
++        "internalType": "bool"
++      }
++    ],
++    "stateMutability": "view"
++  },
+   {
+     "type": "function",
+     "name": "LOCKER_BEACON",
+@@ -125,75 +156,47 @@
+   },
+   {
+     "type": "function",
+-    "name": "isLockerCreated",
++    "name": "setGovernor",
+     "inputs": [
+       {
+-        "name": "locker",
++        "name": "newGovernor",
+         "type": "address",
+         "internalType": "address"
+       }
+     ],
+-    "outputs": [
+-      {
+-        "name": "isCreated",
+-        "type": "bool",
+-        "internalType": "bool"
+-      }
+-    ],
+-    "stateMutability": "view"
+-  },
+-  {
+-    "type": "function",
+-    "name": "isPaused",
+-    "inputs": [],
+-    "outputs": [
+-      {
+-        "name": "",
+-        "type": "bool",
+-        "internalType": "bool"
+-      }
+-    ],
+-    "stateMutability": "view"
+-  },
+-  {
+-    "type": "function",
+-    "name": "pauseLockerCreation",
+-    "inputs": [],
+     "outputs": [],
+     "stateMutability": "nonpayable"
+   },
+   {
+     "type": "function",
+-    "name": "setGovernor",
++    "name": "upgradeTo",
+     "inputs": [
+       {
+-        "name": "newGovernor",
++        "name": "newImplementation",
+         "type": "address",
+         "internalType": "address"
++      },
++      {
++        "name": "data",
++        "type": "bytes",
++        "internalType": "bytes"
+       }
+     ],
+     "outputs": [],
+     "stateMutability": "nonpayable"
+   },
+   {
+-    "type": "function",
+-    "name": "unpauseLockerCreation",
+-    "inputs": [],
+-    "outputs": [],
+-    "stateMutability": "nonpayable"
+-  },
+-  {
+-    "type": "function",
+-    "name": "upgradeTo",
++    "type": "event",
++    "name": "GovernorUpdated",
+     "inputs": [
+       {
+-        "name": "newImplementation",
++        "name": "newGovernor",
+         "type": "address",
++        "indexed": false,
+         "internalType": "address"
+       }
+     ],
+-    "outputs": [],
+-    "stateMutability": "nonpayable"
++    "anonymous": false
+   },
+   {
+     "type": "event",

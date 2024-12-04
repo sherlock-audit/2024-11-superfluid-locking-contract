@@ -1,0 +1,9 @@
+diff a/fluid/packages/contracts/.gitignore b/fluid/packages/contracts/.gitignore	(rejected hunks)
+@@ -9,6 +9,7 @@ out/
+ 
+ # Docs
+ docs/
++lcov.info
+ 
+ # Dotenv file
+ .env

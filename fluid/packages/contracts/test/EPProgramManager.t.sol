@@ -619,7 +619,7 @@ contract FluidEPProgramManagerTest is SFTest {
         vm.prank(ADMIN);
         _programManager.setSubsidyRate(subsidyRate);
 
-        ISuperfluidPool pool1 = _helperCreateProgram(programId, ADMIN, vm.addr(signerPkey));
+        ISuperfluidPool programPool = _helperCreateProgram(programId, ADMIN, vm.addr(signerPkey));
         uint256 beforeEarlyEnd = block.timestamp + invalidDuration;
         uint256 earlyEnd = block.timestamp + earlyEndDuration;
 
